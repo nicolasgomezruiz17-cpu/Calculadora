@@ -6,8 +6,8 @@ public class Main {
     static int numero1;
     static int numero2;
     static int dato;
-    static boolean repetir =true;
     static boolean verificar =true;
+    static boolean bandera = true;
     static String palabra;
     static Scanner entrada = new Scanner(System.in);
     public static void main(String[] args) {
@@ -17,43 +17,72 @@ public class Main {
         Multiplicacion resultadoMultiplicacion = new Multiplicacion();
         Division resultadoDivision = new Division();
         Potencia resultadoPotencia = new Potencia();
-        while(!(bandera = false)){
+        do {
             mostrarMenu();
             switch (getdato()){
                 case 1:
-                    while(repetir=true){
+                    do {
                         suma();
                         resultadoSuma.suma(getNumero1(),getNumero2());
-                        repetirOperacion(getpalabra());
-                        break;
+                        repetirOperacion();
                     }
+                    while(verificar);
+
                     break;
                 case 2:
-                    resta();
-                    resultadoResta.resta(getNumero1(),getNumero2());
+                    do {
+                        resta();
+                        resultadoResta.resta(getNumero1(),getNumero2());
+                        repetirOperacion();
+                    }
+                    while (verificar);
+
                     break;
 
                 case 3:
-                    multiplicacion();
-                    resultadoMultiplicacion.multiplicacion(getNumero1(),getNumero2());
+                    do {
+                        multiplicacion();
+                        resultadoMultiplicacion.multiplicacion(getNumero1(),getNumero2());
+                        repetirOperacion();
+                    }
+                    while (verificar);
+
+
                     break;
+
 
                 case 4:
-                    division();
-                    resultadoDivision.division(getNumero1(),getNumero2());
+                    do {
+                        division();
+                        resultadoDivision.division(getNumero1(),getNumero2());
+                        repetirOperacion();
+                    }
+                    while (verificar);
+
+
                     break;
 
+
                 case 5:
-                    potencia();
-                    resultadoPotencia.potencia(getNumero1(),getNumero2());
+                    do {
+                        potencia();
+                        resultadoPotencia.potencia(getNumero1(),getNumero2());
+                        repetirOperacion();
+                    }
+                    while (verificar);
+
+
                     break;
+
 
                 case 6:
                     bandera = false;
                     break;
             }
 
-        }
+        }while (bandera);
+
+
         System.out.println("||=====================================||");
         System.out.println("||   GRACIAS POR USAR MI CALCULADORA   ||");
         System.out.println("||=====================================||");
@@ -80,20 +109,17 @@ public class Main {
         return dato;
     }
 
-    public static void repetirOperacion(String palabra) {
+    public static void repetirOperacion() {
         System.out.println("|| PARA SALIR AL MENU PRINCIPAL TECLEE (SALIR)");
-        palabra = entrada.nextLine();
-        entrada.nextLine();
-        if (palabra.equalsIgnoreCase("SALIR")) {
+        palabra = entrada.next();
+        if (palabra.equalsIgnoreCase("Salir")){
             verificar = false;
-        } else {
+        }else{
             verificar = true;
         }
     }
 
-    public static String getpalabra(){
-        return palabra;
-    }
+
 
     public static void suma(){
         System.out.println("||============================================||");
