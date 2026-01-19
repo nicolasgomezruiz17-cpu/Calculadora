@@ -1,8 +1,37 @@
 public class Division {
-    int num1;
-    int num2;
+    double num1;
+    double num2;
+    StringBuilder historial = new StringBuilder();
+    int contador = 0;
+    private final int limite = 3;
 
-    public void division(int num1, int num2){
-        System.out.println("El resultado de la operación es: " + (num1/num2));
+    public void division(double num1, double num2){
+        if (contador == (limite+1)) {
+            historial.setLength(0); // borra todo
+            contador = 0;
+        }
+        if (num2 != 0){
+            var resultado = num1/num2;
+            System.out.println(String.format("|| EL RESULTADO DE LA OPERACIÓN ES: %.2f",(num1/num2)));
+            historial.append("|| OPERACIÓN #" + (contador + 1) +
+                    " | Números: " + num1 + " y " + num2 +
+                    " | Resultado: " + resultado + "\n");
+            contador++;
+        } else {
+            System.out.println("NO SE PUEDE DIVIDIR ENTRE CERO");
+        }
+    }
+    public void mostrarhistorial(){
+        if (contador == 0){
+            System.out.println("NO HAY OPERACIONES EN ESTE MOMENTO");
+        }else{
+            System.out.println("||===============================||");
+            System.out.println("||       HISTORIAL DIVISIÓN      ||");
+            System.out.println("||===============================||");
+            System.out.println(historial);
+        }
+
+
     }
 }
+
