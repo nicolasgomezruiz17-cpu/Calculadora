@@ -3,13 +3,12 @@ import java.util.Scanner;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    static double numero1;
-    static double numero2;
+    static double numero1;// variables para el metodo de tomar los datos por consola
+    static double numero2;// importante estas variables tienes que ser estaticas para que funcionen dentro de la misma clase
     static int dato;
     static boolean verificar =true;
-    static boolean bandera = true;
     static String palabra;
-    static Scanner entrada = new Scanner(System.in);
+    static Scanner entrada = new Scanner(System.in);// el scanner tiene que ser global para que funcione en toda la clase
     public static void main(String[] args) {
         boolean bandera = true;
         Suma resultadoSuma = new Suma();
@@ -19,6 +18,7 @@ public class Main {
         Division resultadoDivision = new Division();
         Potencia resultadoPotencia = new Potencia();
         do {
+            // los métodos para que aparezcan los menus están en la parte inferior, esto se hace con el fin de que el código se vea más limpio
             mostrarMenu();
             switch (getdato()){
                 case 1:
@@ -117,7 +117,7 @@ public class Main {
         dato = entrada.nextInt();
     }
 
-    public static int getdato(){
+    public static int getdato(){// este getter es para activar el switch
         return dato;
     }
 
@@ -143,12 +143,6 @@ public class Main {
         numero2 = entrada.nextDouble();
     }
 
-    public static double getNumero1() {
-        return numero1;
-    }
-    public static double getNumero2(){
-        return numero2;
-    }
 
     public static void resta(){
         System.out.println("||============================================||");
@@ -187,6 +181,15 @@ public class Main {
         numero1 = entrada.nextDouble();
         System.out.println("||  POR FAVOR ESCRIBA EL NÚMERO AL QUE QUIERE ELEVARLO: ");
         numero2 = entrada.nextDouble();
+    }
+
+    // Getters para obtener los números de las operaciones
+
+    public static double getNumero1() {
+        return numero1;
+    }
+    public static double getNumero2(){
+        return numero2;
     }
 
     public static void historialMenu(){

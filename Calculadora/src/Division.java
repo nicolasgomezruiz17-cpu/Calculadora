@@ -6,6 +6,8 @@ public class Division {
     private final int limite = 3;
 
     public void division(double num1, double num2){
+
+        // Este código sirve para limpiar el stringbuilder para que solo puedo tener 3 datos a la vez
         if (contador == (limite+1)) {
             historial.setLength(0); // borra todo
             contador = 0;
