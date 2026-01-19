@@ -3,8 +3,8 @@ import java.util.Scanner;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    static int numero1;
-    static int numero2;
+    static double numero1;
+    static double numero2;
     static int dato;
     static boolean verificar =true;
     static boolean bandera = true;
@@ -13,6 +13,7 @@ public class Main {
     public static void main(String[] args) {
         boolean bandera = true;
         Suma resultadoSuma = new Suma();
+        Suma historial = new Suma();
         Resta resultadoResta = new Resta();
         Multiplicacion resultadoMultiplicacion = new Multiplicacion();
         Division resultadoDivision = new Division();
@@ -74,8 +75,18 @@ public class Main {
 
                     break;
 
-
                 case 6:
+                    historialMenu();
+                    resultadoSuma.mostrarHistorial();
+                    resultadoDivision.mostrarhistorial();
+                    resultadoPotencia.mostrarhistorial();
+                    resultadoMultiplicacion.mostrarhistorial();
+                    resultadoResta.mostrarhistorial();
+                    repetirOperacion();
+                    break;
+
+
+                case 7:
                     bandera = false;
                     break;
             }
@@ -99,7 +110,8 @@ public class Main {
         System.out.println("||3. Multiplicación   ||");
         System.out.println("||4. División         ||");
         System.out.println("||5. Potencia         ||");
-        System.out.println("||6. Salir             ||");
+        System.out.println("||6. Historial        ||");
+        System.out.println("||7. Salir            ||");
         System.out.println("||====================||");
         System.out.println("||  POR FAVOR SELECCIONE UNA OPCIÓN: ");
         dato = entrada.nextInt();
@@ -126,15 +138,15 @@ public class Main {
         System.out.println("||     HAZ SELECCIONADO LA OPCIÓN DE SUMA     ||");
         System.out.println("||============================================||");
         System.out.println("||  POR FAVOR ESCRIBA EL PRIMER NÚMERO: ");
-        numero1 = entrada.nextInt();
+        numero1 = entrada.nextDouble();
         System.out.println("||  POR FAVOR ESCRIBA EL SEGUNDO NÚMERO: ");
-        numero2 = entrada.nextInt();
+        numero2 = entrada.nextDouble();
     }
 
-    public static int getNumero1() {
+    public static double getNumero1() {
         return numero1;
     }
-    public static int getNumero2(){
+    public static double getNumero2(){
         return numero2;
     }
 
@@ -143,9 +155,9 @@ public class Main {
         System.out.println("||     HAZ SELECCIONADO LA OPCIÓN DE RESTA    ||");
         System.out.println("||============================================||");
         System.out.println("||  POR FAVOR ESCRIBA EL PRIMER NÚMERO: ");
-        numero1 = entrada.nextInt();
+        numero1 = entrada.nextDouble();
         System.out.println("||  POR FAVOR ESCRIBA EL SEGUNDO NÚMERO: ");
-        numero2 = entrada.nextInt();
+        numero2 = entrada.nextDouble();
     }
 
     public static void multiplicacion(){
@@ -153,18 +165,18 @@ public class Main {
         System.out.println("||     HAZ SELECCIONADO LA OPCIÓN DE MULTIPLICACIÓN     ||");
         System.out.println("||======================================================||");
         System.out.println("||  POR FAVOR ESCRIBA EL PRIMER NÚMERO: ");
-        numero1 = entrada.nextInt();
+        numero1 = entrada.nextDouble();
         System.out.println("||  POR FAVOR ESCRIBA EL SEGUNDO NÚMERO: ");
-        numero2 = entrada.nextInt();
+        numero2 = entrada.nextDouble();
     }
     public static void division(){
         System.out.println("||================================================||");
         System.out.println("||     HAZ SELECCIONADO LA OPCIÓN DE DIVISIÓN     ||");
         System.out.println("||================================================||");
         System.out.println("||  POR FAVOR ESCRIBA EL PRIMER NÚMERO: ");
-        numero1 = entrada.nextInt();
+        numero1 = entrada.nextDouble();
         System.out.println("||  POR FAVOR ESCRIBA EL SEGUNDO NÚMERO: ");
-        numero2 = entrada.nextInt();
+        numero2 = entrada.nextDouble();
     }
 
     public static void potencia(){
@@ -172,9 +184,15 @@ public class Main {
         System.out.println("||     HAZ SELECCIONADO LA OPCIÓN DE POTENCIA     ||");
         System.out.println("||================================================||");
         System.out.println("||  POR FAVOR ESCRIBA EL PRIMER NÚMERO: ");
-        numero1 = entrada.nextInt();
+        numero1 = entrada.nextDouble();
         System.out.println("||  POR FAVOR ESCRIBA EL NÚMERO AL QUE QUIERE ELEVARLO: ");
-        numero2 = entrada.nextInt();
+        numero2 = entrada.nextDouble();
+    }
+
+    public static void historialMenu(){
+        System.out.println("||================================================||");
+        System.out.println("||           ESTA HA SIDO TU HISTORIAL            ||");
+        System.out.println("||================================================||");
     }
 
 }
